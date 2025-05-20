@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartItem, updateCartQuantity } from "@/store/shop/cart-slice";
 import { useToast } from "../ui/use-toast";
+import { FaPlus } from "react-icons/fa6";
 
 function UserCartItemsContent({ cartItem }) {
   const { user } = useSelector((state) => state.auth);
@@ -81,7 +82,13 @@ function UserCartItemsContent({ cartItem }) {
       <div className="flex-1">
         <h3 className="font-extrabold">{cartItem?.title}</h3>
         <div className="flex items-center gap-2 mt-1">
-          <Button
+          <Minus 
+          variant="outline"
+            className="h-4 w-4 rounded-full"
+            size="icon"
+            disabled={cartItem?.quantity === 1}
+            onClick={() => handleUpdateQuantity(cartItem, "minus")}/>
+          {/* <Button
             variant="outline"
             className="h-8 w-8 rounded-full"
             size="icon"
@@ -90,17 +97,24 @@ function UserCartItemsContent({ cartItem }) {
           >
             <Minus className="w-4 h-4" />
             <span className="sr-only">Decrease</span>
-          </Button>
+          </Button> */}
           <span className="font-semibold">{cartItem?.quantity}</span>
-          <Button
-            variant="outline"
+
+          <Plus 
+           variant="outline"
+            className="h-4 w-4 rounded-full"
+            size="icon"
+            onClick={() => handleUpdateQuantity(cartItem, "plus")}
+            />
+          {/* <Button 
+          variant="outline"
             className="h-8 w-8 rounded-full"
             size="icon"
             onClick={() => handleUpdateQuantity(cartItem, "plus")}
           >
-            <Plus className="w-4 h-4" />
-            <span className="sr-only">Decrease</span>
-          </Button>
+            <Plus className="w-4 h-4 " />
+            <span className="sr-only">Increase</span>
+          </Button> */}
         </div>
       </div>
       <div className="flex flex-col items-end">

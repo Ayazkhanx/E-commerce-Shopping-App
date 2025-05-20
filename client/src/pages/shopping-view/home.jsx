@@ -1,29 +1,15 @@
 import { Button } from "@/components/ui/button";
-import bannerOne from "../../assets/banner-1.webp";
-import bannerTwo from "../../assets/banner-2.webp";
-import bannerThree from "../../assets/banner-3.webp";
-import {
-  Airplay,
-  BabyIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CloudLightning,
-  Heater,
-  Images,
-  Shirt,
-  ShirtIcon,
-  ShoppingBasket,
-  UmbrellaIcon,
-  WashingMachine,
-  WatchIcon,
-} from "lucide-react";
+import pic1 from '../../assets/pic1.jpg'
+import pic2 from '../../assets/pic2.jpg'
+import pic3 from '../../assets/pic3.jpg'
+import pic4 from '../../assets/pic4.jpg'
+import pic5 from '../../assets/pic5.jpg'
+import { Airplay, BabyIcon, ChevronLeftIcon, ChevronRightIcon, CloudLightning, Heater, 
+Images, Shirt, ShirtIcon, ShoppingBasket, UmbrellaIcon, WashingMachine, WatchIcon, Footprints } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchAllFilteredProducts,
-  fetchProductDetails,
-} from "@/store/shop/products-slice";
+import { fetchAllFilteredProducts, fetchProductDetails,} from "@/store/shop/products-slice";
 import ShoppingProductTile from "@/components/shopping-view/product-tile";
 import { useNavigate } from "react-router-dom";
 import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
@@ -35,17 +21,20 @@ const categoriesWithIcon = [
   { id: "men", label: "Men", icon: ShirtIcon },
   { id: "women", label: "Women", icon: CloudLightning },
   { id: "kids", label: "Kids", icon: BabyIcon },
-  { id: "accessories", label: "Accessories", icon: WatchIcon },
-  { id: "footwear", label: "Footwear", icon: UmbrellaIcon },
+  { id: "sneakers", label: "Sneakers", icon: Footprints },
+  { id: "runningshoes", label: "Running shoes", icon: Footprints }
 ];
 
 const brandsWithIcon = [
   { id: "nike", label: "Nike", icon: Shirt },
-  { id: "adidas", label: "Adidas", icon: WashingMachine },
-  { id: "puma", label: "Puma", icon: ShoppingBasket },
-  { id: "levi", label: "Levi's", icon: Airplay },
-  { id: "zara", label: "Zara", icon: Images },
-  { id: "h&m", label: "H&M", icon: Heater },
+      { id: "adidas", label: "Adidas", icon: WashingMachine },
+      { id: "puma", label: "Puma", icon: ShoppingBasket },
+      { id: "newbalance", label: "New Balance", icon: Airplay },
+      { id: "hokaone", label: "Hoke One One", icon: Images },
+      { id: "calvinklein", label: "Calvin Klein", icon: Heater },
+      { id: "onrunning", label: "on Running",icon: Heater },
+      { id: "converse", label: "Converse", icon: Heater },
+      { id: "asics", label: "ASICS", icon: Heater },,
 ];
 function ShoppingHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
